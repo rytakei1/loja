@@ -19,6 +19,7 @@
     "zod": "^3.23.4"
   },
   "devDependencies": {
+    "@nuxtjs/color-mode": "^3.4.0",
     "@types/jsonwebtoken": "^9.0.6",
     "jsonwebtoken": "^9.0.2",
     "prisma": "^5.13.0",

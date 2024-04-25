@@ -1,12 +1,13 @@
 <template>
   <div>
-    <label :for="id" class="text-primary text-xs">{{ label }}</label>
+    <label :for="id" class="text-main-500 text-xs">{{ label }}</label>
     <UInput
       :id="id"
       :placeholder="placeholder"
       :type="type"
       :modelValue="modelValue"
       @input="handleInput"
+      color="main"
     />
   </div>
 </template>

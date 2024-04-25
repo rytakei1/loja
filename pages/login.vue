@@ -6,8 +6,9 @@
       v-model="password"
       type="password"
       class="mb-4"
+      label="Senha"
     />
-    <UButton @click="handleLogin">Login</UButton>
+    <UButton @click="handleLogin" color="main">Login</UButton>
   </div>
 </template>
 
