@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
         firstName: body.data.firstName,
         lastName: body.data.lastName,
         password: body.data.password,
-        customerId: body.data.customerId,
+        role: "user",
       },
     });
     return res;
