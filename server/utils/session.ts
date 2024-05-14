@@ -13,7 +13,6 @@ export const createToken = async (user: User) => {
       id: user.id,
       email: user.email,
       role: user.role,
-      customerId: user.customerId,
     },
     config.tokenSecret,
     {

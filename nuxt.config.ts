@@ -6,6 +6,9 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxtjs/cloudinary",
     "nuxt-icon",
+    "@pinia/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
+    "unplugin-icons/nuxt",
   ],
   runtimeConfig: {
     tokenSecret: process.env.JWT_SECRET,

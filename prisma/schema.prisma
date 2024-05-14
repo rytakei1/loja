@@ -25,10 +25,12 @@ model Product {
   id          Int      @id @default(autoincrement())
   name        String
   imageUrl    String
-  price       Decimal  @default(0)
+  price       BigInt   @default(0)
   stock       Int      @default(0)
   description String
   categoryId  Int
+  brand       String
+  model       String
   category    Category @relation(fields: [categoryId], references: [id])
 }
 

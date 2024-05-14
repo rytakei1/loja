@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <label :for="id" class="text-main-500 text-sm font-semibold">{{
-      label
-    }}</label>
+  <UFormGroup :label="label" :name="id">
     <UInput
       :id="id"
       :placeholder="placeholder"
@@ -10,12 +7,10 @@
       :modelValue="modelValue"
       @input="handleInput"
     />
-  </div>
+  </UFormGroup>
 </template>
 
 <script setup lang="ts">
-import type { InputColor } from "#ui/types";
-
 interface Props {
   id?: string;
   label?: string;
@@ -23,11 +18,18 @@ interface Props {
   type?: string;
   modelValue: string;
 }
+withDefaults(defineProps<Props>(), {
+  id: "input",
+  label: "",
+  placeholder: "",
+  type: "input",
+});
+
 const handleInput = (e: InputEvent) => {
   const input = e.target as HTMLInputElement;
   emits("update:modelValue", input.value);
 };
-defineProps<Props>();
+
 const emits = defineEmits(["update:modelValue"]);
 </script>
 

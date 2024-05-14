@@ -1,7 +1,9 @@
 <template>
   <div class="flex min-h-[100vh] w-full flex-col">
     <LayoutNavbar />
-    <slot />
+    <div class="flex flex-col grow overflow-y-auto">
+      <slot />
+    </div>
   </div>
 </template>
 
