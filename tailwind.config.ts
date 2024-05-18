@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default <Partial<Config>>{
-  darkMode: "selector",
+  darkMode: "class",
   theme: {
     extend: {
       colors: {

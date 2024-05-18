@@ -1,11 +1,12 @@
 <template>
   <UFormGroup :label="label" :name="id" :ui="{ container: 'h-15' }">
-    <UInput
-      :id="id"
-      :placeholder="placeholder"
-      :type="type"
-      @input="handleInput"
-    />
+    <USelectMenu>
+      <template #option-create="{ option }">
+        <span class="flex-shrink-0">New label:</span>
+        <span class="flex-shrink-0 w-2 h-2 mt-px rounded-full -mx-1" />
+        <span class="block truncate">{{ option.label }}</span>
+      </template>
+    </USelectMenu>
   </UFormGroup>
 </template>
 
@@ -13,9 +14,7 @@
 interface Props {
   id?: string;
   label?: string;
-  placeholder?: string;
-  type?: "input" | "number";
-  modelValue: string | number;
+  options: any[];
 }
 const model = defineModel();
 const props = withDefaults(defineProps<Props>(), {

@@ -10,6 +10,21 @@
     class="space-y-4"
   >
     <BaseInput v-model="formState.name" id="name" label="Nome" />
+    <FormImageSelector v-model="formState.image" />
+    <BaseCurrencyInput v-model="formState.price" id="preco" label="Preço" />
+    <BaseInput
+      v-model="formState.stock"
+      id="stock"
+      label="Estoque"
+      type="number"
+    />
+    <BaseInput v-model="formState.brand" id="brand" label="Marca" />
+    <BaseInput v-model="formState.model" id="model" label="Modelo" />
+    <BaseTextarea
+      v-model="formState.description"
+      id="description"
+      label="Descrição"
+    />
     <UButton type="submit">Salvar</UButton>
   </UForm>
 </template>
@@ -24,7 +39,15 @@ definePageMeta({
 });
 const formState = reactive({
   name: "",
+  image: undefined,
+  price: 0,
+  stock: 0,
+  brand: "",
+  model: "",
+  category: "",
+  description: "",
 });
+watch(formState, (val) => console.log(val));
 type Schema = z.output<typeof createProductSchema>;
 const handleSubmit = async (event: FormSubmitEvent<Schema>) => {
   console.log(event.data);

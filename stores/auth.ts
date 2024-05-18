@@ -24,6 +24,7 @@ export const useAuthStore = defineStore("auth", {
   actions: {
     async googleLogin(response: CallbackTypes.CredentialPopupResponse) {
       const toast = useToast();
+      const router = useRouter();
       try {
         const res = await $fetch("/api/auth/googleLogin", {
           body: { credential: response.credential },
@@ -37,6 +38,10 @@ export const useAuthStore = defineStore("auth", {
           color: "main",
           timeout: 1500,
         });
+
+        if (res.user.role === "admin") {
+          router.push("/admin/usuarios");
+        }
       } catch (err) {
         toast.add({
           title: "Erro ao fazer login utilizando Google",
@@ -55,6 +60,7 @@ export const useAuthStore = defineStore("auth", {
       password: string;
     }) {
       const toast = useToast();
+      const router = useRouter();
       try {
         const res = await $fetch("/api/auth/login", {
           body: { email, password },
@@ -67,6 +73,9 @@ export const useAuthStore = defineStore("auth", {
           color: "main",
           timeout: 1500,
         });
+        if (res.user.role === "admin") {
+          router.push("/admin/usuarios");
+        }
       } catch (err) {
         console.error(err);
         toast.add({

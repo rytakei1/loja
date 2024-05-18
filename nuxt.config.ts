@@ -15,6 +15,8 @@ export default defineNuxtConfig({
   },
   colorMode: {
     preference: "light",
+    fallback: "light",
+    classSuffix: "",
   },
   cloudinary: {
     apiKey: "843451242252636",

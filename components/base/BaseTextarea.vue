@@ -1,10 +1,10 @@
 <template>
   <UFormGroup :label="label" :name="id" :ui="{ container: 'h-15' }">
-    <UInput
+    <UTextarea
       :id="id"
       :placeholder="placeholder"
-      :type="type"
       @input="handleInput"
+      :rows="rows"
     />
   </UFormGroup>
 </template>
@@ -14,25 +14,21 @@ interface Props {
   id?: string;
   label?: string;
   placeholder?: string;
-  type?: "input" | "number";
   modelValue: string | number;
+  rows?: number;
 }
 const model = defineModel();
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   id: "input",
   label: "",
   placeholder: "",
-  type: "input",
   modelValue: "",
+  rows: 3,
 });
 
 const handleInput = (e: InputEvent) => {
   const target = e.target as HTMLInputElement;
-  if (props.type === "number") {
-    model.value = parseInt(target.value);
-  } else {
-    model.value = target.value;
-  }
+  model.value = target.value;
 };
 </script>
 

@@ -22,16 +22,16 @@ model User {
 }
 
 model Product {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   name        String
-  imageUrl    String
-  price       BigInt   @default(0)
-  stock       Int      @default(0)
-  description String
-  categoryId  Int
-  brand       String
-  model       String
-  category    Category @relation(fields: [categoryId], references: [id])
+  imageUrl    String?
+  price       BigInt    @default(0)
+  stock       Int       @default(0)
+  description String?
+  categoryId  Int?
+  brand       String?
+  model       String?
+  category    Category? @relation(fields: [categoryId], references: [id])
 }
 
 model Category {
